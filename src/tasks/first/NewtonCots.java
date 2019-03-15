@@ -7,6 +7,7 @@ import tasks.first.helpers.Matrix;
 
 import java.util.Arrays;
 
+import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
 public class NewtonCots implements Method {
@@ -39,7 +40,12 @@ public class NewtonCots implements Method {
     private Matrix getMatrixMoment() {
         double[] moments = new double[points.length];
         for (int i = 0; i < moments.length; i++) {
-            moments[i] = moment(i);
+            if (f.getBeta() == 0)
+                moments[i] = moments[i];
+            else
+                moments[i] = newMoment(i);
+            //if (abs(moment(i) - newMoment(i)) > 10e-4)
+             //   throw new RuntimeException("Use new moment!");
         }
         return Matrix.Generator.getFromValueCol(moments);
     }
@@ -64,12 +70,12 @@ public class NewtonCots implements Method {
         return Matrix.Generator.getFromValueCol(fX);
     }
 
-    private double moment(int i) {
+    private double moment(int j) {
         Polynom momentPolynom;
         if (f.getBeta() == 0) {
-            momentPolynom = new Polynom(new double[]{f.getA(), 1}).power(i);
+            momentPolynom = new Polynom(new double[]{f.getA(), 1}).power(j);
         } else if (f.getAlpha() == 0) {
-            momentPolynom = new Polynom(new double[]{f.getB(), -1}).power(i);
+            momentPolynom = new Polynom(new double[]{f.getB(), -1}).power(j);
         } else
             throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
         double sum = 0;
@@ -85,6 +91,44 @@ public class NewtonCots implements Method {
                 throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
             sum += end - start;
         }
+        //System.out.println("I is " + j + "\tSum: " + sum);
+        return sum;
+    }
+
+    private double newMoment(int j) {
+        Polynom momentPolynom;
+        if (f.getBeta() == 0) {
+            momentPolynom = new Polynom(new double[]{1, 1}).power(j);
+        } else if (f.getAlpha() == 0) {
+            momentPolynom = new Polynom(new double[]{1, -1}).power(j);
+        } else
+            throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
+
+        double sum = 0;
+        for (int i = 0; i < momentPolynom.getCoeffs().length; i++) {
+            double end, start;
+            if (f.getBeta() == 0) {
+                start = momentPolynom.getCoeffs()[i]
+                        * pow(f.getA(), i)
+                        * pow(f.getB() - f.getA(), (1 + j - i - f.getAlpha()))
+                        / (1 + j - i - f.getAlpha());
+                end = 0;
+            } else if (f.getAlpha() == 0) {
+                end = momentPolynom.getCoeffs()[i]
+                        * pow(f.getB(), i)
+                        * pow(f.getB() - f.getA(), (1 + j - i - f.getBeta()))
+                        / (1 + j - i - f.getBeta());
+                start = 0;
+            } else
+                throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
+            sum += start - end;
+            //System.out.println(1 + j - i - f.getBeta());//+
+            //System.out.println(f.getB() - f.getA());//+
+            //System.out.println(pow(f.getB(), i));
+            //System.out.println("Data" + (-end));
+        }
+        //System.out.println("I is " + j + "\tSum: " + sum);
+        //System.out.println();
         return sum;
     }
 }

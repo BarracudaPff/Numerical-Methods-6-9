@@ -42,6 +42,6 @@ public class Function4 implements Function {
 
     @Override
     public String toWolframString() {
-        return null;
+        return "int+(+3*cos(3.5*x)*exp(4*x%2F3)%2B2*sin(3.5*x)*exp(-2*x%2F3)%2B4*x)%2F(b-x)%5E(1%2F6)+1..3";
     }
 }

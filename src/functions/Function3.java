@@ -42,6 +42,6 @@ public class Function3 implements Function {
 
     @Override
     public String toWolframString() {
-        return null;
+        return "int+(+2.5+*+cos(2+*+x)+*+exp(2+*+x+%2F+3)+%2B+4+*+sin(3.5+*+x)+*+exp(-3+*+x)+%2B+3+*+x)%2F(x-0.1)%5E(1%2F5)+0.1..2.3";
     }
 }

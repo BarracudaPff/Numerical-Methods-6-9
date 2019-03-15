@@ -24,20 +24,6 @@ public class Plot extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(800, 600);
-
-        /*DataTable data = new DataTable(Double.class, Double.class);
-        for (double x = -5.0; x <= 5.0; x += 0.25) {
-            double y = 5.0 * Math.sin(x);
-            data.add(x, y);
-        }
-        XYPlot plot = new XYPlot(data);
-        plot.add();
-        getContentPane().add(new InteractivePanel(plot));
-        LineRenderer lines = new DefaultLineRenderer2D();
-        plot.setLineRenderers(data, lines);
-        Color color = new Color(0.0f, 0.3f, 1.0f);
-        plot.getPointRenderers(data).get(0).setColor(color);
-        plot.getLineRenderers(data).get(0).setColor(color);*/
     }
 
     public Plot setTrueLine(double y) {
@@ -53,17 +39,18 @@ public class Plot extends JFrame {
     public void build() {
         points.sort(Comparator.comparingDouble(Pair::getKey));
         DataTable tableY = new DataTable(Double.class, Double.class);
-        for (Pair<Double, Double> point : points) {
-            tableY.add(point.getKey()*100, y*1000);
-        }
+        tableY.add(points.get(0).getKey() * 100, y * 1000);
+        tableY.add(points.get(points.size()-1).getKey() * 100, y * 1000);
+
         DataTable tableX = new DataTable(Double.class, Double.class);
         for (Pair<Double, Double> point : points) {
-            tableX.add(point.getKey()*100, point.getValue()*1000);
+            tableX.add(point.getKey() * 100, point.getValue() * 1000);
         }
         DataTable tableScale = new DataTable(Double.class, Double.class);
-        tableScale.add(points.get(0).getKey()*100, 0d);
+        tableScale.add(points.get(0).getKey() * 100, 0d);
+
         XYPlot plot = new XYPlot();
-        plot.add(tableY);
+        //plot.add(tableY);
         plot.add(tableX);
         plot.add(tableScale);
         getContentPane().add(new InteractivePanel(plot));
@@ -71,8 +58,10 @@ public class Plot extends JFrame {
         plot.setLineRenderers(tableY, lines);
         plot.setLineRenderers(tableX, lines);
         plot.setLineRenderers(tableScale, lines);
-        Color color = new Color(0.0f, 0.3f, 1.0f);
-        //plot.getLineRenderers(tableX).get(0).setColor(color);
+        Color colorY = new Color(0.0f, 0.3f, 1.0f);
+        plot.getLineRenderers(tableY).get(0).setColor(colorY);
+        Color colorX = new Color(1.0f, 0.0f, 0.0f);
+        plot.getLineRenderers(tableX).get(0).setColor(colorX);
         setVisible(true);
     }
 
