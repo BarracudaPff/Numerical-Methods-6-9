@@ -1,4 +1,4 @@
-package tasks.first;
+package tasks.second;
 
 import functions.*;
 import tasks.plot.Plot;
@@ -29,20 +29,17 @@ public class Main {
             e.printStackTrace();
             System.out.println("Error with internet connection.");
         }
-        newtonCots.setBorderA(0.8333333333333333);
-        newtonCots.setBorderB(1.5666666666666664);
-        System.out.println(newtonCots.setPoints(3).getResults());
-        System.out.println(newtonCots.setPoints(3).solve());
+        System.out.println(newtonCots.setPoints(10).solve());
 
         /*for (int i = 1; i < count; i++) {
             try {
-                double xx = newtonCots.setPoints(i).solve();
+                double xx = new NewtonCots(f).setPoints(i).solve();
                 plot.addPoint(i, xx);
                 System.out.println("Answer with " + i +
                         " points is: " + xx +
                         "\t difference is: " + abs(xx - yy));
             } catch (Exception e) {
-                System.out.println("Skipped iteration " + i);// +" "+e.getMessage() +" "+e.getClass());
+                System.out.println("Skipped iteration " + i +" "+e.getMessage() +" "+e.getClass());
             }
         }*/
         //plot.build();
