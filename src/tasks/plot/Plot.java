@@ -38,28 +38,28 @@ public class Plot extends JFrame {
 
     public void build() {
         points.sort(Comparator.comparingDouble(Pair::getKey));
-        DataTable tableY = new DataTable(Double.class, Double.class);
-        tableY.add(points.get(0).getKey() * 100, y * 1000);
-        tableY.add(points.get(points.size()-1).getKey() * 100, y * 1000);
+        //DataTable tableY = new DataTable(Double.class, Double.class);
+        //tableY.add(points.get(0).getKey(), y);
+        //tableY.add(points.get(points.size() - 1).getKey(), y);
 
         DataTable tableX = new DataTable(Double.class, Double.class);
         for (Pair<Double, Double> point : points) {
-            tableX.add(point.getKey() * 100, point.getValue() * 1000);
+            tableX.add(point.getKey(), point.getValue());
         }
-        DataTable tableScale = new DataTable(Double.class, Double.class);
-        tableScale.add(points.get(0).getKey() * 100, 0d);
+        //DataTable tableScale = new DataTable(Double.class, Double.class);
+        //tableScale.add(points.get(0).getKey(), 0d);
 
         XYPlot plot = new XYPlot();
         //plot.add(tableY);
         plot.add(tableX);
-        plot.add(tableScale);
+        //plot.add(tableScale);
         getContentPane().add(new InteractivePanel(plot));
         LineRenderer lines = new DefaultLineRenderer2D();
-        plot.setLineRenderers(tableY, lines);
+        //plot.setLineRenderers(tableY, lines);
         plot.setLineRenderers(tableX, lines);
-        plot.setLineRenderers(tableScale, lines);
+        //plot.setLineRenderers(tableScale, lines);
         Color colorY = new Color(0.0f, 0.3f, 1.0f);
-        plot.getLineRenderers(tableY).get(0).setColor(colorY);
+        //plot.getLineRenderers(tableY).get(0).setColor(colorY);
         Color colorX = new Color(1.0f, 0.0f, 0.0f);
         plot.getLineRenderers(tableX).get(0).setColor(colorX);
         setVisible(true);

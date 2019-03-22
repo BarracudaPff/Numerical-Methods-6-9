@@ -1,6 +1,8 @@
 package tasks;
 
+import javafx.util.Pair;
+
 public interface Method {
     double EPSILON = 10e-8;
-    double solve();
+    Pair<Double, Double> solve(double yy);
 }

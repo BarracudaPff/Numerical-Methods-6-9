@@ -1,6 +1,7 @@
 package tasks.first;
 
 import functions.Function;
+import javafx.util.Pair;
 import lib.com.polynom.polynom.Polynom;
 import tasks.Method;
 import tasks.first.helpers.Matrix;
@@ -166,5 +167,10 @@ public class NewtonCots implements Method {
     public NewtonCots setBorderB(double b) {
         this.b = b;
         return this;
+    }
+
+    @Override
+    public Pair<Double, Double> solve(double yy) {
+        return null;
     }
 }
