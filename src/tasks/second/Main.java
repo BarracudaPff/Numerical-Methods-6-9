@@ -5,9 +5,10 @@ import tasks.plot.Plot;
 import tasks.wolfram.WolframTask;
 
 import static java.lang.Math.abs;
+import static java.lang.StrictMath.pow;
 
 public class Main {
-    private static int count = 50;
+    private static int count = 10;
 
     public static void main(String[] args) {
         test1();
@@ -29,9 +30,9 @@ public class Main {
             e.printStackTrace();
             System.out.println("Error with internet connection.");
         }
-        System.out.println(newtonCots.setPoints(10).solve());
+        //System.out.println(newtonCots.setPoints(3).solve());
 
-        /*for (int i = 1; i < count; i++) {
+        for (int i = 1; i < count; i++) {
             try {
                 double xx = new NewtonCots(f).setPoints(i).solve();
                 plot.addPoint(i, xx);
@@ -41,7 +42,7 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Skipped iteration " + i +" "+e.getMessage() +" "+e.getClass());
             }
-        }*/
+        }
         //plot.build();
     }
 
