@@ -59,7 +59,7 @@ public class NewtonCots {
             double z0 = z[i];
             double zHalf = (z[i + 1] - z[i]) / 2;
             double z1 = z[i + 1];
-            //System.out.println("================");changechange
+            //System.out.println("================");changechangechange
             //System.out.println(z0 + " " + zHalf + " " + z1);
             //System.out.println(getA1(z0, zHalf, z1));
             //System.out.println(getA2(z0, zHalf, z1));
