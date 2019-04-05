@@ -40,7 +40,7 @@ public class Gauss implements MethodMatrix {
 
             // singular or nearly singular
             if (Math.abs(A.getValue(p, p)) <= EPSILON) {
-                throw new ArithmeticException("Matrix is singular or nearly singular");
+                //throw new ArithmeticException("Matrix is singular or nearly singular");
             }
 
             // pivot within A and b

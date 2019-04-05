@@ -15,7 +15,7 @@ public class Main {
 
     private static void test1() {
         Plot plot = new Plot();
-        Function f = new Function3();
+        Function f = new Function5();
         NewtonCots newtonCots = new NewtonCots(f);
         System.out.println("Calculating " + f);
         WolframTask task = new WolframTask(f);
@@ -29,9 +29,6 @@ public class Main {
             e.printStackTrace();
             System.out.println("Error with internet connection.");
         }
-        newtonCots.setBorderA(0.8333333333333333);
-        newtonCots.setBorderB(1.5666666666666664);
-        System.out.println(newtonCots.setPoints(3).getResults());
         System.out.println(newtonCots.setPoints(3).solve());
 
         /*for (int i = 1; i < count; i++) {

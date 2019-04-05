@@ -41,6 +41,7 @@ public class NewtonCots implements Method {
     }
 
     public double solve() {
+        moment(0);
         if (points == null) {
             throw new RuntimeException("No points setup");
         }
@@ -108,8 +109,9 @@ public class NewtonCots implements Method {
             } else
                 throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
             sum += end - start;
+            System.out.println("j: " + j + "\t" + sum);
         }
-        //System.out.println("I is " + j + "\tSum: " + sum);
+        System.out.println("I is " + j + "\tSum: " + sum);
         return sum;
     }
 
@@ -145,8 +147,8 @@ public class NewtonCots implements Method {
             //System.out.println(pow(f.getB(), i));
             //System.out.println("Data" + (-end));
         }
-        //System.out.println("I is " + j + "\tSum: " + sum);
-        //System.out.println();
+        System.out.println("I is " + j + "\tSum: " + sum);
+        System.out.println();
         return sum;
     }
 
