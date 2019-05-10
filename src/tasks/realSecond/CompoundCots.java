@@ -1,6 +1,7 @@
 package tasks.realSecond;
 
 import functions.FunctionSet;
+import tasks.quadratures.GaussCots;
 import tasks.second.NewtonCots;
 
 public class CompoundCots {
@@ -28,7 +29,7 @@ public class CompoundCots {
             f.setA(i);
             f.setB(i + h);
             if (isGauss) {
-                sum += (new GausCots(f).setPoints(2).solve());
+                sum += (new GaussCots(f).setPoints(2).solve());
             } else {
                 sum += (new NewtonCots(f).setPoints(2).solve());
             }

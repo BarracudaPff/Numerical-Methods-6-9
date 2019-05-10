@@ -2,6 +2,7 @@ package tasks.realSecond;
 
 import functions.*;
 import tasks.plot.Plot;
+import tasks.quadratures.GaussCots;
 import tasks.second.NewtonCots;
 import tasks.wolfram.WolframTask;
 
@@ -12,18 +13,31 @@ public class Main {
     private static int count = 1000;
     public static final double EPS_MAX = 10e-3;
     public static final double EPS_MIN = 10e-10;
+
     public static void main(String[] args) {
         test2();
     }
 
     private static void test2() {
-        FunctionSet f = new Function5();
+        Function f = new Function5();
         System.out.println("Calculating " + f);
 
         double h = 0.0001;
 
-        System.out.println(new CompoundCots(f, true).setH(h).solve());
-        System.out.println(new CompoundCots(f, false).setH(h).solve());
+        //System.out.println(new CompoundCots(f, true).setH(h).solve());
+        //System.out.println(new CompoundCots(f, false).setH(h).solve());
+        for (int i = 9; i < 10; i++) {
+            try {
+                System.out.println(
+                        new GaussCots(f).setPoints(i).solve()
+                                //+ "\t" +
+                                //new NewtonCots(f).setPoints(i).solve()
+                );
+            } catch (Exception e) {
+                System.out.println("skipped " + i);
+                e.printStackTrace();
+            }
+        }
     }
 
     private static void test1() {
@@ -59,9 +73,9 @@ public class Main {
 
         plot.build();
 
-        GausCots gausCots = new GausCots(f);
-        gausCots.setPoints(2);
-        double y = gausCots.solve();
+        GaussCots gaussCots = new GaussCots(f);
+        gaussCots.setPoints(2);
+        double y = gaussCots.solve();
         System.out.println(y);
         plot.build();
     }

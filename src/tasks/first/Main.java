@@ -2,6 +2,7 @@ package tasks.first;
 
 import functions.*;
 import tasks.plot.Plot;
+import tasks.quadratures.NewtonCots;
 import tasks.wolfram.WolframTask;
 
 import static java.lang.Math.abs;
