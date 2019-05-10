@@ -1,25 +1,17 @@
 package functions;
 
 import static java.lang.Math.*;
-import static java.lang.Math.pow;
 
-public class Function3 implements Function {
-    private double a = 0.1;
+public class Function15 implements FunctionSet {
+    private double a = 1.2;
     private double b = 2.3;
 
-    private double alpha = 1d / 2d;
+    private double alpha = 4d / 5d;
     private double beta = 0;
 
-    public void setA(double a) {
-        this.a = a;
-    }
-
-    public void setB(double b) {
-        this.b = b;
-    }
     @Override
     public double f(double x) {
-        return 2.5 * cos(2 * x) * exp(2 * x / 3) + 4 * sin(3.5 * x) * exp(-3 * x) + 3 * x;
+        return 3.5 *cos(0.7*x)* exp(-5*x/3) + 2.4* sin(5.5*x) *exp(-3*x/4) + 5 ;
     }
 
     @Override
@@ -49,11 +41,14 @@ public class Function3 implements Function {
 
     @Override
     public String toWolframString() {
-        return "int+(+2.5+*+cos(2+*+x)+*+exp(2+*+x+%2F+3)+%2B+4+*+sin(3.5+*+x)+*+exp(-3+*+x)+%2B+3+*+x)%2F(x-0.1)%5E(1%2F5)+0.1..2.3";
+        return null;
+    }
+    public void setA(double a) {
+        this.a = a;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName();
+    public void setB(double b) {
+        this.b = b;
     }
+
 }

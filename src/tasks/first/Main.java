@@ -31,7 +31,7 @@ public class Main {
         }
         System.out.println(newtonCots.setPoints(3).solve());
 
-        /*for (int i = 1; i < count; i++) {
+        for (int i = 1; i < count; i++) {
             try {
                 double xx = newtonCots.setPoints(i).solve();
                 plot.addPoint(i, xx);
@@ -41,8 +41,8 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Skipped iteration " + i);// +" "+e.getMessage() +" "+e.getClass());
             }
-        }*/
-        //plot.build();
+        }
+        plot.build();
     }
 
 

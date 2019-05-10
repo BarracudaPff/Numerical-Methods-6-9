@@ -109,9 +109,9 @@ public class NewtonCots implements Method {
             } else
                 throw new RuntimeException("Wrong alpha = " + f.getAlpha() + " or wrong beta = " + f.getBeta());
             sum += end - start;
-            System.out.println("j: " + j + "\t" + sum);
+            //System.out.println("j: " + j + "\t" + sum);
         }
-        System.out.println("I is " + j + "\tSum: " + sum);
+        //System.out.println("I is " + j + "\tSum: " + sum);
         return sum;
     }
 

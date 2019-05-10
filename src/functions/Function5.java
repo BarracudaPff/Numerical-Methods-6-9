@@ -2,7 +2,7 @@ package functions;
 
 import static java.lang.Math.*;
 
-public class Function5 implements Function {
+public class Function5 implements FunctionSet {
     private double a = 2.5;
     private double b = 4.3;
 
@@ -27,6 +27,14 @@ public class Function5 implements Function {
     @Override
     public double getB() {
         return b;
+    }
+
+    public void setA(double a) {
+        this.a = a;
+    }
+
+    public void setB(double b) {
+        this.b = b;
     }
 
     @Override
