@@ -1,8 +1,8 @@
 
 
-package lib.com.polynom.main;
+package lib.polynom.main;
 
-import lib.com.polynom.polynom.Polynom;
+import lib.polynom.polynom.Polynom;
 
 import java.util.Arrays;
 

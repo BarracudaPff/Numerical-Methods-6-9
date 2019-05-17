@@ -1,6 +1,6 @@
-package lib.com.polynom.polynom;
+package lib.polynom.polynom;
 
-import lib.com.polynom.solver.Solver;
+import lib.polynom.solver.Solver;
 
 import java.util.ArrayList;
 import java.util.Map;

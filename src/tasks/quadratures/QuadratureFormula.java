@@ -1,8 +1,8 @@
 package tasks.quadratures;
 
 import functions.Function;
-import lib.com.polynom.polynom.Polynom;
-import tasks.first.helpers.Matrix;
+import lib.polynom.polynom.Polynom;
+import lib.matrix.Matrix;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,10 @@ import static java.lang.Math.pow;
 public abstract class QuadratureFormula {
     protected double[] points;
     protected Function f;
+
+    public QuadratureFormula(Function f) {
+        this.f = f;
+    }
 
     public abstract double solve();
 

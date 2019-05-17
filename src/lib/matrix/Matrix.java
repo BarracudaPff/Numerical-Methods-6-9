@@ -1,4 +1,4 @@
-package tasks.first.helpers;
+package lib.matrix;
 
 import java.util.concurrent.ThreadLocalRandom;
 

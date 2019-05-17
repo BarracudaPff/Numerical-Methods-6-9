@@ -1,9 +1,9 @@
 package tasks.first;
 
 import functions.*;
-import tasks.plot.Plot;
+import lib.plot.Plot;
 import tasks.quadratures.NewtonCots;
-import tasks.wolfram.WolframTask;
+import lib.wolfram.WolframTask;
 
 import static java.lang.Math.abs;
 

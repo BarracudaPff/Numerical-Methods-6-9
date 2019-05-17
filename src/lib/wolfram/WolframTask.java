@@ -1,4 +1,4 @@
-package tasks.wolfram;
+package lib.wolfram;
 
 import functions.Function;
 import org.json.JSONException;

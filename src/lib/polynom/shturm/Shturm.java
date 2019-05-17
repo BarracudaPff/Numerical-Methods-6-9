@@ -1,6 +1,6 @@
-package lib.com.polynom.shturm;
+package lib.polynom.shturm;
 
-import lib.com.polynom.polynom.Polynom;
+import lib.polynom.polynom.Polynom;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package tasks;
 
-import tasks.first.helpers.Matrix;
+import lib.matrix.Matrix;
 
 public interface MethodMatrix {
     double EPSILON = 10e-8;

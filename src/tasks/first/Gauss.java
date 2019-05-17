@@ -1,8 +1,7 @@
 package tasks.first;
 
-import tasks.Method;
 import tasks.MethodMatrix;
-import tasks.first.helpers.Matrix;
+import lib.matrix.Matrix;
 
 public class Gauss implements MethodMatrix {
     private Matrix A, B;

@@ -1,4 +1,4 @@
-package tasks.plot;
+package lib.plot;
 
 import java.awt.Color;
 import java.util.ArrayList;

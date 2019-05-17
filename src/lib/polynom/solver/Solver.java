@@ -1,7 +1,7 @@
-package lib.com.polynom.solver;
+package lib.polynom.solver;
 
-import lib.com.polynom.polynom.Polynom;
-import lib.com.polynom.shturm.Shturm;
+import lib.polynom.polynom.Polynom;
+import lib.polynom.shturm.Shturm;
 
 public class Solver {
     private Shturm shturm;

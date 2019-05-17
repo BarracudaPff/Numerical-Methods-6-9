@@ -1,21 +1,18 @@
 package tasks.quadratures;
 
 import functions.Function;
-import lib.com.polynom.polynom.Polynom;
+import lib.polynom.polynom.Polynom;
 import tasks.first.Gauss;
-import tasks.first.helpers.Matrix;
-
-import java.util.Arrays;
+import lib.matrix.Matrix;
 
 public class GaussCots extends QuadratureFormula{
 
     public GaussCots(Function f) {
-        this.f = f;
+        super(f);
     }
 
     @Override
     public double solve() {
-        System.out.println(Arrays.toString(points));
         double[] moments = new double[points.length * 2];
         for (int i = 0; i < moments.length; i++) {
             moments[i] = moment(i);
@@ -46,8 +43,6 @@ public class GaussCots extends QuadratureFormula{
 
         Polynom omega = new Polynom(aWithLead);
         double[] x = omega.solve();
-        System.out.println(omega);
-        System.out.println(Arrays.toString(x));
 
         Matrix AKoef = new Gauss.Builder().setA(getMatrixX(x)).setB(getMatrixMoment()).build().solve();
         return Matrix.scalMul(Matrix.trans(getMatrixFX()), Matrix.trans(AKoef));
