@@ -24,43 +24,29 @@ public class Main {
         plot1.build();
     }
 
-    static ArrayList<Pair<Double, Double>> getGauss() {
+    static ArrayList<Pair<Double, Double>> getNewt() {
         ArrayList<Pair<Double, Double>> arr = new ArrayList<>();
-        arr.add(new Pair(3d, 0.0387));
-        arr.add(new Pair(4d, 0.0326));
-        arr.add(new Pair(5d, 0.0275));
-
-        arr.add(new Pair(6d, 0.0234));
-        arr.add(new Pair(7d, 0.0208));
-        arr.add(new Pair(8d, 0.0185));
-        arr.add(new Pair(9d, 0.0164));
-        arr.add(new Pair(10d, 0.0146));
-        arr.add(new Pair(11d, 0.0130));
-        arr.add(new Pair(12d, 0.0116));
-        arr.add(new Pair(13d, 0.0103));
-        arr.add(new Pair(14d, 0.0091));
-        arr.add(new Pair(15d, 0.0081));
-        arr.add(new Pair(16d, 0.0072));
+        arr.add(new Pair<>(4d,0.02709));
+        arr.add(new Pair<>(5d,0.012578));
+        arr.add(new Pair<>(6d,0.00583));
+        arr.add(new Pair<>(7d,0.0027099));
+        arr.add(new Pair<>(8d,0.0012578));
+        arr.add(new Pair<>(9d,5.8383415e-04));
+        arr.add(new Pair<>(10d,2.709918e-04));
+        arr.add(new Pair<>(11d,1.257832e-04));
         return arr;
     }
 
-    static ArrayList<Pair<Double, Double>> getNewt() {
+    static ArrayList<Pair<Double, Double>> getGauss() {
         ArrayList<Pair<Double, Double>> arr = new ArrayList<>();
-        arr.add(new Pair(3d, 0.0563));
-        arr.add(new Pair(4d, 0.0493));
-        arr.add(new Pair(5d, 0.0433));
-
-        arr.add(new Pair(6d, 0.0383));
-        arr.add(new Pair(7d, 0.0347));
-        arr.add(new Pair(8d, 0.0313));
-        arr.add(new Pair(9d, 0.0283));
-        arr.add(new Pair(10d, 0.0256));
-        arr.add(new Pair(11d, 0.0231));
-        arr.add(new Pair(12d, 0.0209));
-        arr.add(new Pair(13d, 0.0189));
-        arr.add(new Pair(14d, 0.0171));
-        arr.add(new Pair(15d, 0.0154));
-        arr.add(new Pair(16d, 0.0140));
+        //arr.add(new Pair<>(4d, 1.5008909));
+        //arr.add(new Pair<>(5d, 0.4746233));
+        arr.add(new Pair<>(6d, 0.1500890));
+        arr.add(new Pair<>(7d, 0.0474623));
+        arr.add(new Pair<>(8d, 0.0150089));
+        arr.add(new Pair<>(9d, 0.0047462));
+        arr.add(new Pair<>(10d,0.0015008));
+        arr.add(new Pair<>(11d,4.7362e-04));
         return arr;
     }
 
